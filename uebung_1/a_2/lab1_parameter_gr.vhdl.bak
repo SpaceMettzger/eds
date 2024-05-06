@@ -13,21 +13,19 @@ end gr_than;
 
 architecture rtl of gr_than is
     signal previous_sig: std_logic;
-	signal q_sig: std_logic;
 begin
-	q_sig <= '0';
-	previous_sig <= '1';
-
-    process(a, b) 
+    process(a, b) -- Process sensitivity list includes a and b
     begin
+        q <= '0';
+        previous_sig <= '1';
+        
         for i in 0 to n-1 loop
-            if (previous_sig  = '1' and ((a(n-i-1) = '1') and (b(n-i-1) = '0'))) then
+            if (previous_sig and (a(n-i-1) = '1' and b(n-i-1) = '0')) then
                 q <= '1'; 
                 exit;
             else
                 previous_sig <= previous_sig and (a(n-i-1) xnor b(n-i-1));
             end if;
         end loop;
-		q <= q_sig;
     end process;
 end rtl;
