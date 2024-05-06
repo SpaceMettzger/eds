@@ -8,10 +8,11 @@ end tb_comparator;
 architecture testing of tb_comparator is 
     component comparator
     port(
-      a,b: in std_logic_vector(1 downto 0);
-      q: out std_logic);
+						--- Ports ergaenzen
+        );
     end component;
-
+	
+   --- Signale deklarieren
 
 begin
 	-- Komponenten instanziieren
