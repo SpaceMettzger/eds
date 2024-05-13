@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity comparator is
+entity eq is
 port (a,b: in std_logic_vector(3 downto 0); 
 	  q: out std_logic
  	  );
-end comparator;
+end eq;
 
-architecture rtl of comparator is
+architecture rtl of eq is
 signal s_verifyB1: std_logic; 
 signal s_verifyB2: std_logic; 
 signal s_verifyB3: std_logic; 

@@ -6,9 +6,10 @@ entity tb_comparator is
 end tb_comparator;
  
 architecture testing of tb_comparator is 
-    component comparator
+    component eq_gen
     port(
-						--- Ports ergaenzen
+        a, b: std_logic_vector(n-1 downto 0);
+        q: std_logic
         );
     end component;
 	

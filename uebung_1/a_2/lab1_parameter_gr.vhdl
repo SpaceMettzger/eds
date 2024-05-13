@@ -1,17 +1,18 @@
  library ieee;
 use ieee.std_logic_1164.all;
 
-entity gr_than is
+entity gr_than_gen is
     generic (
         n: integer := 2 -- n = Anzahl der zu vergleichenden Bits
     );
-    port (
-        a, b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
-        q: out std_logic -- '1' wenn a > b sonst '0'
-    );
-end gr_than;
 
-architecture rtl of gr_than is
+port (
+    a, b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
+    q: out std_logic -- '1' wenn a > b sonst '0'
+    );
+end gr_than_gen;
+
+architecture rtl of gr_than_gen is
     signal previous_sig: std_logic;
 	signal q_sig: std_logic;
 begin

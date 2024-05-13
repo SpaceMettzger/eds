@@ -13,11 +13,11 @@ entity eq_gen is
 end eq_gen;
 
 architecture rtl of eq_gen is
-    signal s_q: std_logic := '1'; 
+    signal s_q: std_logic := '1'; -- Initialize s_q to '1'
 begin
-    process(a, b) 
+    process(a, b) -- Process to update s_q when a or b changes
     begin
-        s_q <= '1'; 
+        s_q <= '1'; -- Reset s_q to '1' at the beginning of each process cycle
         
         for i in 0 to n-1 loop
             if (a(i) /= b(i)) then
@@ -27,5 +27,5 @@ begin
         end loop;
     end process;
     
-    q <= s_q; 
+    q <= s_q; -- Assign the value of s_q to q
 end rtl;

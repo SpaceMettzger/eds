@@ -1,0 +1,51 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all; 
+
+entity tb_comparator is
+end tb_comparator;
+ 
+architecture testing of tb_comparator is 
+    component comparator
+    port(
+        a, b: in std_logic_vector(3 downto 0); 
+        q : out std_logic
+    );
+    end component;
+    
+    signal s_a, s_b : std_logic_vector(3 downto 0);
+    signal s_q : std_logic;
+
+begin
+
+    configuration tb_config of tb_comparator is
+        for tb_equal:
+            for all : comparator
+                use entity eq_gen;
+        end for;
+
+        for tb_greater:
+            for all : comparator
+                use entity gr_than_gen;
+        end for;
+    end tb_config;
+
+    comparator_inst : comparator
+        port map (
+            a => s_a,
+            b => s_b,
+            q => s_q
+        ) configuration tb_config;
+
+    -- Testbench process for generating stimuli
+    stimuli: process
+    begin 
+        for i in 0 to 15 loop -- generate 16 values (corresponding to 4 bits)
+            a <= std_logic_vector(to_unsigned(i,4));  
+            b <= std_logic_vector(to_unsigned(i+1,4));  
+            wait for 20 ns; 
+        end loop;
+        wait;
+    end process;
+
+end testing;
