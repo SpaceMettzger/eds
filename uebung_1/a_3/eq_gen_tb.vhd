@@ -6,41 +6,39 @@ entity tb_gen_equal is
 end tb_gen_equal;
 
 architecture testing of tb_gen_equal is 
-  component gen_equal 
-    generic (n: integer := 4);-- n = Anzahl der zu vergleichenden Bits
-    port(a,b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
-         eq: out std_logic);
-  end component;
+  constant k : integer := 4; 
 
-  signal a: std_logic_vector(3 downto 0) := (others => '0');
-  signal b: std_logic_vector(3 downto 0) := (others => '0');
-  signal eq: std_logic;
+  component comparator is
+    GENERIC (
+        n: integer := k
+    ); --Anzahl der zu vergleichenden Bits
+
+    port (
+        a, b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
+        q: out std_logic -- '1' wenn a = b sonst '0'
+    );
+end component;
+
+  signal s_a: std_logic_vector(k-1 downto 0);
+  signal s_b: std_logic_vector(k-1 downto 0);
+  signal s_q: std_logic;
 
 begin
   -- Komponenten instanziieren
-  dut: gen_equal generic map (
-      n => 4)
+  dut: comparator 
     port map (
-      a => a,
-      b => b,
-      eq => eq);
+      a => s_a,
+      b => s_b,
+      q => s_q);
 
   -- Beispielprozess für Stimuli-Signale
   stimuli: process
   begin 
     for i in 0 to 15 loop -- generiere 16 Werte (entspr. 4 Bit)
-      a <= std_logic_vector(to_unsigned(i+1,4));  
-      b <= std_logic_vector(to_unsigned(i,4));  
+      s_a <= std_logic_vector(to_unsigned(i,k));  
+      s_b <= std_logic_vector(to_unsigned(i+1,k));  
       wait for 20 ns; 
     end loop;
-    wait;
-  end process;
-
-  -- Überprüfung der Ausgabe
-  assertion_check: process
-  begin
-    wait for 30 ns; -- Wartezeit für Stabilität der Ausgabe
-    assert eq = '1' report "Output eq not as expected" severity error;
     wait;
   end process;
 

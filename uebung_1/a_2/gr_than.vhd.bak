@@ -13,23 +13,22 @@ port (
 end gr_than;
 
 architecture rtl of gr_than is
+signal previous_sig: std_logic;
 signal q_sig: std_logic;
 
 begin
 
     process(a, b) 
     begin
-        q_sig <= '0';
-        for i in n-1 downto 0 loop
-            if a(i)  = '1' and b(i) = '0' then
+        previous_sig <= '1';
+        for i in 0 to n-1 loop
+            if (previous_sig  = '1' and ((a(n-1-i) = '1') and (b(n-1-i) = '0'))) then
                 q_sig <= '1'; 
                 exit;
-            elsif
-                b(i)  = '1' and a(i) = '0' then  
-				q_sig <= '0'; 
-                exit;
+            else
+                previous_sig <= previous_sig and (a(n-1-i) xnor b(n-1-i));
             end if;
         end loop;
+		q <= q_sig;
     end process;
-    q <= q_sig;
 end rtl;

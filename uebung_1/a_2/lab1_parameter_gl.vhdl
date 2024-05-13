@@ -1,26 +1,29 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity eq_gen is
+entity comparator is
     GENERIC (
-        n: integer := 2 
+        n: integer := 4
     ); --Anzahl der zu vergleichenden Bits
 
     port (
         a, b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
         q: out std_logic -- '1' wenn a = b sonst '0'
     );
-end eq_gen;
+end comparator;
 
-architecture rtl of eq_gen is
-    signal s_q: std_logic := '1'; 
+architecture rtl of comparator is
+signal s_q: std_logic := '1'; 
+signal temp: std_logic;
+
 begin
     process(a, b) 
     begin
         s_q <= '1'; 
         
         for i in 0 to n-1 loop
-            if (a(i) /= b(i)) then
+            temp <= a(i) xor b(i);
+            if (temp = '1') then
                 s_q <= '0';
                 exit;
             end if;

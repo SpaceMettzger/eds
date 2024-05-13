@@ -5,18 +5,19 @@ entity tb_ge is
 end tb_ge;
  
 architecture testing of tb_ge is 
-    component gr_than
+    component gr
     port(
       a,b: in std_logic_vector(3 downto 0);
       q: out std_logic);
     end component;
 
 signal s_a, s_b : std_logic_vector(3 downto 0);
+signal s_q : std_logic;
 
 
 begin
-    dut: gr_than
-	port map (a => s_a , b => s_b);
+    dut: gr
+	port map (a => s_a , b => s_b, q => s_q);
    
     PROCESS
     BEGIN

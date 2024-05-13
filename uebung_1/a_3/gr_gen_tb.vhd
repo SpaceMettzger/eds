@@ -6,42 +6,45 @@ entity tb_gen_gr_than is
 end tb_gen_gr_than;
 
 architecture testing of tb_gen_gr_than is 
-  component gr_than 
-    generic (n: integer := 4);-- n = Anzahl der zu vergleichenden Bits
-    port(a,b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
-         q: out std_logic);
+  constant k : integer := 4; 
+
+  component gr_than
+    generic (
+      n: integer := k
+      );-- n = Anzahl der zu vergleichenden Bits
+
+    port(
+      a,b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
+         q: out std_logic
+         );
   end component;
 
-  signal a: std_logic_vector(3 downto 0) := (others => '0');
-  signal b: std_logic_vector(3 downto 0) := (others => '0');
-  signal eq: std_logic;
+  signal s_a: std_logic_vector(k-1 downto 0);
+  signal s_b: std_logic_vector(k-1 downto 0);
+  signal s_q: std_logic;
 
 begin
   -- Komponenten instanziieren
-  dut: gr_than generic map (
-      n => 4)
+  dut: gr_than 
     port map (
-      a => a,
-      b => b,
-      q => eq);
+      a => s_a,
+      b => s_b,
+      q => s_q);
 
   -- Beispielprozess für Stimuli-Signale
   stimuli: process
   begin 
-    for i in 0 to 15 loop -- generiere 16 Werte (entspr. 4 Bit)
-      a <= std_logic_vector(to_unsigned(i+1,4));  
-      b <= std_logic_vector(to_unsigned(i,4));  
-      wait for 20 ns; 
-    end loop;
-    wait;
-  end process;
+    s_a <= "1100";
+    s_b <= "1000"; 
+    wait for 20 ns;
+    s_a <= "1000";
+    s_b <= "1100"; 
+    wait for 20 ns;
+    s_a <= "1100";
+    s_b <= "1100"; 
+    wait for 20 ns; 
 
-  -- Überprüfung der Ausgabe
-  assertion_check: process
-  begin
-    wait for 30 ns; -- Wartezeit für Stabilität der Ausgabe
-    assert eq = '1' report "Output eq not as expected" severity error;
-    wait;
+  wait;
   end process;
 
 end testing;

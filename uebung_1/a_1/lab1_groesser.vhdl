@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity gr_than is
+entity gr is
 port (a,b: in std_logic_vector(3 downto 0); -- zwei Eingaenge zum Vergleich
 	  q: out std_logic -- '1' wenn a > b sonst '0'
  	  );
-end gr_than;
+end gr;
 
-architecture rtl of gr_than is
+architecture rtl of gr is
     signal s_verifyB3: std_logic; 
     signal s_verifyB2: std_logic; 
     signal s_verifyB1: std_logic; 

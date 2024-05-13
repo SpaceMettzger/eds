@@ -1,20 +1,20 @@
 CONFIGURATION eq OF tb_comparator IS
-    FOR sim
+    FOR testing
     END FOR;
 END CONFIGURATION;
 
 CONFIGURATION gt OF tb_comparator IS
-    FOR sim
+    FOR testing
         FOR DUT : comparator
-            USE ENTITY work.gr_than_gen;
+            USE ENTITY work.gr_than;
         END FOR;
     END FOR;
 END CONFIGURATION;
 
 CONFIGURATION lt OF tb_comparator IS
-    FOR sim
+    FOR testing
         FOR DUT : comparator
-            USE ENTITY work.gr_than_gen
+            USE ENTITY work.gr_than
             PORT MAP (
                 a => b,
                 b => a,
