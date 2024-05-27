@@ -1,5 +1,8 @@
 CONFIGURATION eq OF tb_comparator IS
     FOR testing
+	FOR dut: comparator
+            USE ENTITY work.equal;
+	END FOR;  
     END FOR;
 END CONFIGURATION;
 

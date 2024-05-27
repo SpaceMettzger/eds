@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb_gen_equal is
-end tb_gen_equal;
+entity tb_comparator is
+end tb_comparator;
 
-architecture testing of tb_gen_equal is
+architecture testing of tb_comparator is
   constant k : integer := 4;
 
   component comparator is
@@ -25,21 +25,25 @@ architecture testing of tb_gen_equal is
 
 begin
   dut: comparator
+  generic map(k)
       port map (
-          a => s_a,
-          b => s_b,
-          q => s_q 
+          s_a, s_b, s_q 
       );
 
   -- Stimulus process
   stimuli: process
-  begin
-    for i in 0 to 15 loop -- generiere 16 Werte (entspr. 4 Bit)
-      s_a <= std_logic_vector(to_unsigned(i, k));  
-      s_b <= std_logic_vector(to_unsigned(i+1, k));  
-      wait for 20 ns;
-    end loop;
-    wait;
+  begin 
+    s_a <= "1100";
+    s_b <= "1000"; 
+    wait for 20 ns;
+    s_a <= "1000";
+    s_b <= "1100"; 
+    wait for 20 ns;
+    s_a <= "1100";
+    s_b <= "1100"; 
+    wait for 20 ns; 
+
+  wait;
   end process;
 
 end testing;
