@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all; 
 
+-- Design zu generischem n-bit addierer machen
+-- Vorzeichenlos, ganze Zahlen
+
 entity adder is
 port (x, y, cin : in std_logic;
 	  cout, sum : out std_logic
