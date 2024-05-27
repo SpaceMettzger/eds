@@ -6,7 +6,7 @@ END CONFIGURATION;
 CONFIGURATION gt OF tb_comparator IS
     FOR testing
         FOR dut: comparator
-            USE ENTITY work.gr_than  
+            USE ENTITY work.gr_than
             PORT MAP (
                 a => a,
                 b => b,

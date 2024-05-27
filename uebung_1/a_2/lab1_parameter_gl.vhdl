@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity comparator is
     GENERIC (
         n: integer := 4
-    ); --Anzahl der zu vergleichenden Bits
+    ); 
 
     port (
         a, b: in std_logic_vector(n-1 downto 0); -- zwei Eingaenge zum Vergleich
