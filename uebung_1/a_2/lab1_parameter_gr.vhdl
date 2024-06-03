@@ -17,16 +17,16 @@ signal s_q: std_logic;
 
 begin
 
-    process(a, b) 
+    process(a, b)
     begin
         s_q <= '0';
         for i in n-1 downto 0 loop
             if a(i)  = '1' and b(i) = '0' then
-                s_q <= '1'; 
+                s_q <= '1';
                 exit;
             elsif
-                b(i)  = '1' and a(i) = '0' then  
-                    s_q <= '0'; 
+                b(i)  = '1' and a(i) = '0' then
+                    s_q <= '0';
                 exit;
             end if;
         end loop;
