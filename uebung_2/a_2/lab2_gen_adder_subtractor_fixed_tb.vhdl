@@ -43,33 +43,33 @@ begin
     p_stimulus: process
     begin
 
-        s_x <= "00000" & "10000" & "00101"; -- 5 Nullen hinzugefügt - 10000.00101
-        s_y <= "0" & "011101" & "01110100"; -- 1 Null hinzugefügt - 011101.01110100
+        s_x <= "00000" & "10000" & "00101"; -- 5 Nullen hinzugefuegt - 10000.00101
+        s_y <= "0" & "011101" & "01110100"; -- 1 Null hinzugefuegt - 011101.01110100
         s_mode <= '0';
         wait for 20 ns;
 
-        s_x <= "00000" & "00110" & "10100"; -- 5 Nullen hinzugefügt - 00110.10100
-        s_y <= "0" & "000100" & "11111011"; -- 1 Null hinzugefügt - 000100.11111011
+        s_x <= "00000" & "00110" & "10100"; -- 5 Nullen hinzugefuegt - 00110.10100
+        s_y <= "0" & "000100" & "11111011"; -- 1 Null hinzugefuegt - 000100.11111011
         s_mode <= '0';
         wait for 20 ns;
 
-        s_x <= "00000" & "00001" & "01101"; -- 5 Nullen hinzugefügt - 00001.01101
-        s_y <= "0" & "100001" & "01010101"; -- 1 Null hinzugefügt - 100001.01010101
+        s_x <= "00000" & "00001" & "01101"; -- 5 Nullen hinzugefuegt - 00001.01101
+        s_y <= "0" & "100001" & "01010101"; -- 1 Null hinzugefuegt - 100001.01010101
         s_mode <= '0';
         wait for 20 ns;
 
-        s_x <= "000" & "00111" & "1110001"; -- 3 Nullen hinzugefügt - 00111.1110001
-        s_y <= "00000" & "1001" & "011001";  -- 5 Nullen hinzugefügt - 1001.011001
+        s_x <= "000" & "00111" & "1110001"; -- 3 Nullen hinzugefuegt - 00111.1110001
+        s_y <= "00000" & "1001" & "011001";  -- 5 Nullen hinzugefuegt - 1001.011001
         s_mode <= '1'; -- Differenz: 11111110011111 ~ 01.100001
         wait for 20 ns;
 
-        s_x <= "000" & "11000" & "1001000"; -- 3 Nullen hinzugefügt - 11000.1001000
-        s_y <= "00000" & "1011" & "000111"; -- 5 Nullen hinzugefügt - 1011.000111 
+        s_x <= "000" & "11000" & "1001000"; -- 3 Nullen hinzugefuegt - 11000.1001000
+        s_y <= "00000" & "1011" & "000111"; -- 5 Nullen hinzugefuegt - 1011.000111 
         s_mode <= '1'; -- Differenz: 000011010111010
         wait for 20 ns;
 
-        s_x <= "000" & "00100" & "0000101"; -- 3 Nullen hinzugefügt - 00100.0000101   
-        s_y <= "00000" & "0101" & "110100"; -- 5 Null hinzugefügt - 0101.110100
+        s_x <= "000" & "00100" & "0000101"; -- 3 Nullen hinzugefuegt - 00100.0000101   
+        s_y <= "00000" & "0101" & "110100"; -- 5 Null hinzugefuegt - 0101.110100
         s_mode <= '1'; -- Differenz: 11111110001101 ~ -01.110011
         wait for 20 ns;
 

@@ -5,8 +5,8 @@ use work.myfixed.all;
 
 entity gen_adder_fixed is
     generic (
-        n : integer := 15;  -- 10 für Addition
-        k : integer := 15   --14 für Addition
+        n : integer := 15;  -- 10 fuer Addition
+        k : integer := 15   --14 fuer Addition
     );
     port (
         x : in std_logic_vector(n-1 downto 0);

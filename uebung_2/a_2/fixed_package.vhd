@@ -8,9 +8,9 @@ CONSTANT minuend_bruchb:positive:=7; -- Anzahl der Minuenden-Bruchbits
 CONSTANT subtrahend_breite:positive:=10; -- Bitbreite des Subtrahends
 CONSTANT subtrahend_bruchb:positive:=6; -- Anzahl der Subtrahend-Bruchbits
 CONSTANT summand_a_breite:positive:=10; -- Bitbreite des ersten Summanden
-CONSTANT summand_a_bruchb:positive:=5; -- Anzahl der Summanden-Bruchbits für den ersten Summanden
+CONSTANT summand_a_bruchb:positive:=5; -- Anzahl der Summanden-Bruchbits fuer den ersten Summanden
 CONSTANT summand_b_breite:positive:=14; -- Bitbreite des zweiten Summanden
-CONSTANT summand_b_bruchb:positive:=8; -- Anzahl der Summanden-Bruchbits für den zweiten Summanden
+CONSTANT summand_b_bruchb:positive:=8; -- Anzahl der Summanden-Bruchbits fuer den zweiten Summanden
 
 SUBTYPE t_datain_minuend IS unsigned(minuend_breite-1 DOWNTO 0);
 SUBTYPE t_datain_subtrahend IS unsigned(subtrahend_breite-1 DOWNTO 0);
