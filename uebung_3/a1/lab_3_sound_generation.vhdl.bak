@@ -36,7 +36,6 @@ architecture behavioral of sound_generation is
     signal N : integer := 0;
     signal s_frequency_select : std_logic_vector(1 downto 0) := "11";
     signal toggle : STD_LOGIC := '0';
-	 signal s_out : std_logic_vector(15 downto 0);
 
     begin
         process(clk, reset, s_frequency_select) -- Prozess für die generierung der Töne. 
@@ -68,16 +67,16 @@ architecture behavioral of sound_generation is
                 s_frequency_select <= "11"; -- C6
                 led <= "0000";
             elsif rising_edge(clk) then
-                if key0 = '0' then
+                if key0 = '1' then
                     s_frequency_select <= "00"; -- C7
                     led <= "0001";
-                elsif key1 = '0' then
+                elsif key1 = '1' then
                     s_frequency_select <= "01"; -- G6
                     led <= "0010";
-                elsif key2 = '0' then
+                elsif key2 = '1' then
                     s_frequency_select <= "10"; -- E6
                     led <= "0100";
-                elsif key3 = '0' then
+                elsif key3 = '1' then
                     s_frequency_select <= "11"; -- C6
                     led <= "1000";
                 else
@@ -90,11 +89,10 @@ architecture behavioral of sound_generation is
         process(toggle)
         begin
             case toggle is
-                when '1' => s_out <= "0111111111111111"; 
-                when '0' => s_out <= "1000000000000000"; 
-                when others => s_out <= "0000000000000000"; 
+                when '1' => tone_out <= x"FFFFFFFF"; 
+                when '0' => tone_out <= x"00000000"; 
+                when others => tone_out <= x"00000000"; 
             end case;
-				tone_out <= s_out & s_out;
         end process;
 
 

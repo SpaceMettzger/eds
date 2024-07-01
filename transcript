@@ -1,0 +1,12 @@
+vcom -reportprogress 300 -work work /home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_sound_generation.vhdl
+# Model Technology ModelSim - Intel FPGA Edition vcom 2021.1 Compiler 2021.02 Feb  2 2021
+# Start time: 12:54:28 on Jul 01,2024
+# vcom -reportprogress 300 -work work /home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_sound_generation.vhdl 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sound_generation
+# -- Compiling architecture behavioral of sound_generation
+# End time: 12:54:28 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
