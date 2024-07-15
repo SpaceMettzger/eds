@@ -11,7 +11,7 @@ entity sound_generation is
         key1 : in  STD_LOGIC;
         key0 : in  STD_LOGIC;
         led : out  STD_LOGIC_VECTOR (3 downto 0);
-        tone_out : inout std_logic_vector(31 downto 0)
+        tone_out : out std_logic_vector(31 downto 0)
     );
 end sound_generation;
 
@@ -39,33 +39,32 @@ architecture behavioral of sound_generation is
 	 signal s_out : std_logic_vector(15 downto 0);
 
     begin
-        process(clk, reset, s_frequency_select) -- Prozess für die generierung der Töne. 
+        process(clk, reset) -- Prozess für die generierung der Töne. 
         begin
             if reset = '1' then
                 counter <= 0;
                 toggle <= '0';
             elsif rising_edge(clk) then
                 case s_frequency_select is
-                    when "00" => N <= 8806; --.5; -- C7
-                    when "01" => N <= 11830; --.55; -- G6
-                    when "10" => N <= 13979; --.52; -- E6
+                    when "00" => N <= 8806; -- C7
+                    when "01" => N <= 11830; -- G6
+                    when "10" => N <= 13979; -- E6
                     when "11" => N <= 17613; -- C6
                     when others => N <= 17613; -- C6
                 end case;
-                
-                if counter >= (N / 2) then
-                    counter <= 0;
-                    toggle <= not toggle;
-                else
-                    counter <= counter + 1;
-                end if;
+            end if;
+            if counter >= (N / 2) then
+                counter <= 0;
+                toggle <= not toggle;
+            else
+                counter <= counter + 1;
             end if;
         end process;
 
         process(clk, reset) -- Prozess für die Knopf-Priorisierung
         begin
             if reset = '1' then
-                s_frequency_select <= "11"; -- C6
+                s_frequency_select <= "00"; -- C6
                 led <= "0000";
             elsif rising_edge(clk) then
                 if key0 = '0' then

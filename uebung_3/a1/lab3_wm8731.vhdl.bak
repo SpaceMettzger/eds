@@ -70,20 +70,26 @@ begin
         -- i2c_bitcnt zählt jeweils von 0 bis 31
         -- i2c_wordcnt wird nach 32 Schritte von i2c_bitcnt inkrementiert
         -- wenn i2c_wordcnt auf 7 steht, ist das Ende des Schreibens über I2C beendet
-        if i2c_seq < 2 then 
-            i2c_seq <= i2c_seq + 1;
-        else
-            if i2c_bitcnt < 31 then 
-                i2c_bitcnt <= i2c_bitcnt + 1;
-            else 
+        if i2c_seq = 2 then 
+            i2c_seq <= 0;
+        else 
+            i2c_seq <= i2c_seq +1;
+        end if;
+        
+
+        if (i2c_bitcnt = 31 and i2c_seq = 2 and i2c_wordcnt < 7) then 
                 i2c_bitcnt <= 0;
-                if i2c_wordcnt < 7 then 
-                    i2c_wordcnt <= i2c_wordcnt + 1;
-                elsif i2c_wordcnt >= 7 then
-                    i2c_wordcnt <= 0;
-					end if;
-            end if;
-            i2c_seq <= 0;    
+                i2c_wordcnt <= i2c_wordcnt + 1;       
+        elsif (i2c_seq = 2 and i2c_wordcnt <= 7 and i2c_bitcnt < 31) then
+                i2c_bitcnt <= i2c_bitcnt + 1;
+        end if;
+
+        if ((i2c_bitcnt = 0) or (i2c_bitcnt = 1 and i2c_seq < 1) or i2c_bitcnt = 29 and i2c_seq = 2)
+            i2c_sclk <= '1';
+        elsif (i2c_seq = 1 and not (i2c_bitcnt = 1)) then 
+            i2c_sclk <= '1';
+        else
+            i2c_sclk <= '0';  
         end if;
              
    -- Generierung des I2C Takt
