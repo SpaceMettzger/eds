@@ -1,0 +1,21 @@
+Quartus Prime Archive log --	/home/philipp/programms/quartus/work/wm8731_output.qarlog
+
+Archive:	/home/philipp/programms/quartus/work/wm8731_output.qar
+Date:		Mon Jul 15 09:14:00 2024
+Quartus Prime		22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+	=========== Files Selected: ===========
+/home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab3_wm8731.vhdl
+/home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_sound_generation.vhdl
+/home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_wm8731_output.vhdl
+/home/philipp/intelFPGA_lite/22.1std/quartus/linux64/assignment_defaults.qdf
+/home/philipp/programms/quartus/work/pll.cmp
+/home/philipp/programms/quartus/work/pll.ppf
+/home/philipp/programms/quartus/work/pll.qip
+/home/philipp/programms/quartus/work/pll.vhd
+/home/philipp/programms/quartus/work/wm8731_output.qpf
+/home/philipp/programms/quartus/work/wm8731_output.qsf
+	======= Total: 10 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

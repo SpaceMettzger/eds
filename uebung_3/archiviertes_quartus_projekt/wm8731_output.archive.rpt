@@ -1,0 +1,89 @@
+Archive Project report for wm8731_output
+Mon Jul 15 09:14:00 2024
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Archive Project Summary
+  3. Archive Project Messages
+  4. Files Archived
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------+
+; Archive Project Summary                                        ;
++------------------------+---------------------------------------+
+; Archive Project Status ; Successful - Mon Jul 15 09:14:00 2024 ;
+; Revision Name          ; wm8731_output                         ;
+; Top-level Entity Name  ; wm8731_output                         ;
+; Family                 ; Cyclone IV E                          ;
++------------------------+---------------------------------------+
+
+
++--------------------------+
+; Archive Project Messages ;
++--------------------------+
+Info: File Set 'Source control' contains:
+    Info: Project source and settings files
+    Info: Automatically detected source files
+Warning: Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver
+Info: Archive will store files relative to the closest common parent directory
+Info (13213): Using common directory /home/philipp/
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated archive '/home/philipp/programms/quartus/work/wm8731_output.qar'
+Info: ----------------------------------------------------------
+Info: ----------------------------------------------------------
+Info: Generated report 'wm8731_output.archive.rpt'
+Info (23030): Evaluation of Tcl script /home/philipp/intelFPGA_lite/22.1std/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 592 megabytes
+    Info: Processing ended: Mon Jul 15 09:14:00 2024
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++----------------------------------------------------------------------------------------------------------+
+; Files Archived                                                                                           ;
++----------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                ;
++----------------------------------------------------------------------------------------------------------+
+; ../../../Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab3_wm8731.vhdl                 ;
+; ../../../Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_sound_generation.vhdl      ;
+; ../../../Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_wm8731_output.vhdl         ;
+; /home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab3_wm8731.vhdl            ;
+; /home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_sound_generation.vhdl ;
+; /home/philipp/Documents/semester_6/entwurf_digitaler_systeme/eds/uebung_3/a1/lab_3_wm8731_output.vhdl    ;
+; /home/philipp/intelFPGA_lite/22.1std/quartus/linux64/assignment_defaults.qdf                             ;
+; pll.cmp                                                                                                  ;
+; pll.ppf                                                                                                  ;
+; pll.qip                                                                                                  ;
+; pll.vhd                                                                                                  ;
+; wm8731_output.qpf                                                                                        ;
+; wm8731_output.qsf                                                                                        ;
++----------------------------------------------------------------------------------------------------------+
+
+
